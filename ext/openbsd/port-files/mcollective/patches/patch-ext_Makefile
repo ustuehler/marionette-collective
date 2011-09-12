@@ -1,22 +1,27 @@
 $OpenBSD$
---- ext/Makefile.orig	Tue Aug 24 16:26:59 2010
-+++ ext/Makefile	Tue Aug 24 16:27:08 2010
-@@ -1,6 +1,5 @@
+--- ext/Makefile.orig	Wed Jun  8 20:57:44 2011
++++ ext/Makefile	Mon Sep 12 01:24:45 2011
+@@ -1,7 +1,5 @@
  #!/usr/bin/make -f
  
 -DESTDIR=
- 
+-
  build:
  
-@@ -9,34 +8,30 @@ clean:
+ clean:
+@@ -9,36 +7,34 @@ clean:
  install: install-bin install-lib install-conf install-plugins install-doc
  
  install-bin:
 -	install -d $(DESTDIR)/usr/sbin
+-	install -d $(DESTDIR)/usr/bin
 -	cp mc-* $(DESTDIR)/usr/sbin
+-	cp mco $(DESTDIR)/usr/bin
 -	cp mcollectived.rb $(DESTDIR)/usr/sbin/mcollectived
 +	install -d $(PREFIX)/sbin
++	install -d $(PREFIX)/bin
 +	cp mc-* $(PREFIX)/sbin
++	cp mco $(PREFIX)/bin
 +	cp mcollectived.rb $(PREFIX)/sbin/mcollectived
  
  install-lib:
@@ -33,7 +38,9 @@ $OpenBSD$
 -	rm $(DESTDIR)/etc/mcollective/ssl/PLACEHOLDER
 -	rm $(DESTDIR)/etc/mcollective/ssl/clients/PLACEHOLDER
 +	install -d $(PREFIX)/share/examples/mcollective/
-+	cp -r etc/* $(PREFIX)/share/examples/mcollective/
++	cp -R etc/* $(PREFIX)/share/examples/mcollective/
++	rm $(PREFIX)/share/examples/mcollective/ssl/PLACEHOLDER
++	rm $(PREFIX)/share/examples/mcollective/ssl/clients/PLACEHOLDER
  
  install-plugins:
 -	install -d $(DESTDIR)/usr/share/mcollective/

@@ -1,12 +1,12 @@
 PKG_ARCH=	*
-COMMENT=	The Marionette Collective	
+COMMENT=	The Marionette Collective
 
-DISTNAME=	mcollective-0.4.9
+DISTNAME=	mcollective-1.3.0
 
 CATEGORIES=	sysutils
 
-HOMEPAGE=	http://code.google.com/p/mcollective/
-MASTER_SITES=	http://mcollective.googlecode.com/files/
+HOMEPAGE=	http://www.puppetlabs.com/mcollective
+MASTER_SITES=	http://downloads.puppetlabs.com/mcollective/
 EXTRACT_SUFX=	.tgz
 
 # GFDL
